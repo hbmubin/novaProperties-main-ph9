@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import toast, { Toaster } from "react-hot-toast";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   const { loginUser, user } = useContext(AuthContext);
@@ -21,7 +22,10 @@ const Login = () => {
       .then(() => {
         toast.success("successfully login");
         e.target.reset();
-        navigate(location?.state ? location.state : "/");
+        setTimeout(
+          () => navigate(location?.state ? location.state : "/"),
+          1000
+        );
       })
       .catch(() => {
         toast.error("Invalid email or password");
@@ -30,6 +34,9 @@ const Login = () => {
 
   return (
     <div className="flex justify-center items-center">
+      <Helmet>
+        <title>Nova/Login</title>
+      </Helmet>
       <Toaster></Toaster>
       <form
         onSubmit={handleLogin}

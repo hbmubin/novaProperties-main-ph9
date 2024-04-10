@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 import { AuthContext } from "../../provider/AuthProvider";
 import { updateProfile } from "firebase/auth";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
@@ -47,6 +48,9 @@ const Register = () => {
   return (
     <div className="flex justify-center items-center ">
       <Toaster />
+      <Helmet>
+        <title>Nova/Register</title>
+      </Helmet>
       <form
         onSubmit={handleSubmit}
         className="card-body max-w-lg bg-white rounded-2xl shadow-sm"

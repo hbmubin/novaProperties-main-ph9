@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { CiFaceFrown } from "react-icons/ci";
 import { Link } from "react-router-dom";
 
@@ -5,6 +6,9 @@ const Error = () => {
   return (
     <div className="flex items-center justify-center min-h-screen poppins">
       <div className="flex flex-col items-center">
+        <Helmet>
+          <title>Nova/Error</title>
+        </Helmet>
         <CiFaceFrown
           size={200}
           color="#808080

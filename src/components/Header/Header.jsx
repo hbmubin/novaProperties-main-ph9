@@ -90,6 +90,9 @@ const Header = () => {
         </div>
 
         <div className="navbar-end">
+          {loading && (
+            <span className="loading loading-ring -translate-x-16 loading-lg"></span>
+          )}
           {user ? (
             <div className="flex items-center">
               <div
@@ -129,10 +132,11 @@ const Header = () => {
                     </a>
                   </li>
                 </ul>
-                <div className="w-14 rounded-full">
+                <div className="w-14 rounded-full ring ring-neutral-100 ">
                   <img className="" src={user.photoURL} />
                 </div>
               </div>
+
               <div className="hidden sm:block">
                 <a
                   onClick={handleLogOut}
@@ -143,12 +147,16 @@ const Header = () => {
               </div>
             </div>
           ) : (
-            <NavLink
-              to="/login"
-              className="btn btn-circle px-10 hover:bg-sky-400 hover:text-white"
-            >
-              Login
-            </NavLink>
+            <>
+              {!loading && (
+                <NavLink
+                  to="/login"
+                  className="btn btn-circle px-10 hover:bg-sky-400 hover:text-white"
+                >
+                  Login
+                </NavLink>
+              )}
+            </>
           )}
         </div>
       </div>

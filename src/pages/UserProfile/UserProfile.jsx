@@ -2,15 +2,19 @@ import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import { Link } from "react-router-dom";
 import { MdOutlineModeEdit } from "react-icons/md";
+import { Helmet } from "react-helmet-async";
 
 const UserProfile = () => {
   const { user } = useContext(AuthContext);
 
   return (
     <div className="flex justify-center mt-10">
+      <Helmet>
+        <title>Nova/User Profile</title>
+      </Helmet>
       <div className="card w-96 bg-base-100 shadow-sm">
         <div className="avatar mx-auto mt-6">
-          <div className="w-44 rounded-full">
+          <div className="w-44 rounded-full ring ring-neutral-200">
             <img src={user.photoURL} alt={user.displayName} />
           </div>
         </div>

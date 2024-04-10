@@ -1,9 +1,36 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../provider/AuthProvider";
+import toast, { Toaster } from "react-hot-toast";
 
 const Login = () => {
+  const { loginUser } = useContext(AuthContext);
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    console.log(email, password);
+
+    loginUser(email, password)
+      .then((result) => {
+        toast.success("successfully login");
+        console.log(result.user);
+      })
+      .catch((error) => {
+        toast.error("Invalid email or password");
+
+        console.log(error.message);
+      });
+  };
+
   return (
     <div className="flex justify-center min-h-screen items-center">
-      <form className="card-body max-w-lg bg-white rounded-2xl shadow-sm">
+      <Toaster></Toaster>
+      <form
+        onSubmit={handleLogin}
+        className="card-body max-w-lg bg-white rounded-2xl shadow-sm"
+      >
         <h2 className="text-center font-bold text-4xl mb-6">Login !</h2>
 
         <div className="form-control">
@@ -23,6 +50,7 @@ const Login = () => {
             <span className="label-text">Password</span>
           </label>
           <input
+            name="password"
             type="password"
             placeholder="password"
             className="input input-bordered rounded-full"

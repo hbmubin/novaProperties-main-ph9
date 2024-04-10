@@ -1,6 +1,10 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const Header = () => {
+  const { user } = useContext(AuthContext);
+
   const links = (
     <>
       <li>
@@ -59,20 +63,26 @@ const Header = () => {
         </div>
 
         <div className="navbar-end">
-          <div className="avatar mr-3">
-            <div className="w-14 rounded-full">
-              <img
-                className=""
-                src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-              />
+          {user ? (
+            <div
+              className="avatar mr-3 tooltip tooltip-left"
+              data-tip={user.email}
+            >
+              <div className="w-14 rounded-full">
+                <img
+                  className=""
+                  src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                />
+              </div>
             </div>
-          </div>
-          <Link
-            to="/login"
-            className="btn btn-circle px-10 hover:bg-sky-400 hover:text-white"
-          >
-            Login
-          </Link>
+          ) : (
+            <Link
+              to="/login"
+              className="btn btn-circle px-10 hover:bg-sky-400 hover:text-white"
+            >
+              Login
+            </Link>
+          )}
         </div>
       </div>
     </div>

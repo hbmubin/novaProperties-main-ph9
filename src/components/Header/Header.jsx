@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 
 const Header = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logOut, loading } = useContext(AuthContext);
 
   const links = (
     <>
@@ -15,16 +15,43 @@ const Header = () => {
           Home
         </NavLink>
       </li>
+      {!user && (
+        <>
+          {!loading && (
+            <li>
+              <NavLink
+                to="/register"
+                className="btn  btn-ghost  rounded-full px-5 hover:bg-sky-400 hover:text-white"
+              >
+                Join
+              </NavLink>
+            </li>
+          )}
+        </>
+      )}
+
       <li>
         <NavLink
-          to="/register"
-          className="btn  btn-ghost  rounded-full px-6 hover:bg-sky-400 hover:text-white"
+          to="/userprofile"
+          className="btn btn-ghost rounded-full px-5 hover:bg-sky-400 hover:text-white"
         >
-          Join
+          User Profile
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/updateprofile"
+          className="btn btn-ghost rounded-full px-5 hover:bg-sky-400 hover:text-white"
+        >
+          Update Profile
         </NavLink>
       </li>
     </>
   );
+
+  const handleLogOut = () => {
+    logOut().then().catch();
+  };
 
   return (
     <div>
@@ -49,7 +76,7 @@ const Header = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow rounded-box w-52"
+              className="menu menu-sm dropdown-content flex gap-2 mt-3 z-[1] p-2 shadow rounded-box w-52"
             >
               {links}
             </ul>
@@ -64,24 +91,64 @@ const Header = () => {
 
         <div className="navbar-end">
           {user ? (
-            <div
-              className="avatar mr-3 tooltip tooltip-left"
-              data-tip={user.email}
-            >
-              <div className="w-14 rounded-full">
-                <img
-                  className=""
-                  src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-                />
+            <div className="flex items-center">
+              <div
+                tabIndex={0}
+                role="button"
+                className="avatar mr-3 tooltip tooltip-left dropdown "
+                data-tip={user.email}
+              >
+                <ul
+                  tabIndex={0}
+                  className="menu right-0 sm:right-auto menu-sm dropdown-content flex gap-2 mt-16 w-36  p-2 shadow rounded-box"
+                >
+                  <li>
+                    <NavLink
+                      to="/userprofile"
+                      className="btn  rounded-full  hover:bg-sky-400 hover:text-white w-full"
+                    >
+                      User Profile
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      to="/updateprofile"
+                      className="btn rounded-full  hover:bg-sky-400 hover:text-white w-full"
+                    >
+                      Update Profile
+                    </NavLink>
+                  </li>
+
+                  <li className="block sm:hidden">
+                    <hr className="my-2" />
+                    <a
+                      onClick={handleLogOut}
+                      className="btn rounded-full w-full hover:bg-orange-400 hover:text-white"
+                    >
+                      Logout
+                    </a>
+                  </li>
+                </ul>
+                <div className="w-14 rounded-full">
+                  <img className="" src={user.photoURL} />
+                </div>
+              </div>
+              <div className="hidden sm:block">
+                <a
+                  onClick={handleLogOut}
+                  className="btn rounded-full hover:bg-orange-400 hover:text-white"
+                >
+                  Logout
+                </a>
               </div>
             </div>
           ) : (
-            <Link
+            <NavLink
               to="/login"
               className="btn btn-circle px-10 hover:bg-sky-400 hover:text-white"
             >
               Login
-            </Link>
+            </NavLink>
           )}
         </div>
       </div>

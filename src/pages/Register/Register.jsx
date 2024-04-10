@@ -1,11 +1,12 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 import { AuthContext } from "../../provider/AuthProvider";
 import { updateProfile } from "firebase/auth";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -32,7 +33,10 @@ const Register = () => {
           displayName: name,
           photoURL: photo,
         })
-          .then(() => console.log(result.user))
+          .then(() => {
+            e.target.reset();
+            navigate("/");
+          })
           .catch();
       })
       .catch((error) => {
@@ -41,7 +45,7 @@ const Register = () => {
   };
 
   return (
-    <div className="flex justify-center min-h-screen items-center ">
+    <div className="flex justify-center items-center ">
       <Toaster />
       <form
         onSubmit={handleSubmit}

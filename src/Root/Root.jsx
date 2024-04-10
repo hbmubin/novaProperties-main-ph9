@@ -4,10 +4,8 @@ import Footer from "../components/Footer/Footer";
 const Root = () => {
   return (
     <div className="poppins  bg-yellow-50">
-      <div className="container mx-auto relative">
-        <div className="bg-transparent absolute top-0 w-full">
-          <Header></Header>
-        </div>
+      <div className="container mx-auto">
+        <Header></Header>
         <Outlet></Outlet>
       </div>
       <Footer></Footer>

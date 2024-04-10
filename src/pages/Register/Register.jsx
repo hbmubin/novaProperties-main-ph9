@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const Register = () => {
   const [password, setPassword] = useState(null);
+  const { createUser } = useContext(AuthContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -18,6 +20,13 @@ const Register = () => {
       );
       return;
     }
+    createUser(email, password)
+      .then((result) => {
+        console.log(result.user);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
   };
 
   const handlePassword = (e) => {

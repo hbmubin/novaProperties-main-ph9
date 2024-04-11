@@ -1,9 +1,10 @@
 import { useContext } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 
 const Header = () => {
   const { user, logOut, loading } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const links = (
     <>
@@ -50,7 +51,9 @@ const Header = () => {
   );
 
   const handleLogOut = () => {
-    logOut().then().catch();
+    logOut()
+      .then(() => navigate("/"))
+      .catch();
   };
 
   return (

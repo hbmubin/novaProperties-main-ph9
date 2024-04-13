@@ -114,13 +114,13 @@ const Login = () => {
           <h2 className="text-center font-semibold">Sign in with</h2>
           <div className="flex justify-center gap-6 mt-4">
             <button
-              className="hover:scale-110 duration-300"
+              className="hover:scale-110 hover:bg-neutral-200 p-2 rounded-full duration-300"
               onClick={handleGoogleLogin}
             >
               <FcGoogle size={35}></FcGoogle>
             </button>
             <button
-              className="hover:scale-110 duration-300"
+              className="hover:scale-110 hover:bg-neutral-200 p-2 px-3 rounded-full duration-300"
               onClick={handleGithubLogin}
             >
               <FaGithub size={30}></FaGithub>

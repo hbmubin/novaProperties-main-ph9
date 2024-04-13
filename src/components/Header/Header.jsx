@@ -3,7 +3,7 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 
 const Header = () => {
-  const { user, logOut, loading } = useContext(AuthContext);
+  const { user, logOut, loading, photoLoading } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const links = (
@@ -93,62 +93,66 @@ const Header = () => {
         </div>
 
         <div className="navbar-end">
-          {loading && (
+          {(loading || photoLoading) && (
             <span className="loading loading-ring -translate-x-16 loading-lg"></span>
           )}
           {user ? (
-            <div className="flex items-center">
-              <div
-                tabIndex={0}
-                role="button"
-                className="avatar mr-3 tooltip tooltip-left dropdown "
-                data-tip={user.email}
-              >
-                <ul
-                  tabIndex={0}
-                  className="menu right-0 sm:right-auto menu-sm dropdown-content flex gap-2 mt-16 w-36  p-2 shadow rounded-box"
-                >
-                  <li>
-                    <NavLink
-                      to="/userprofile"
-                      className="btn  rounded-full  hover:bg-sky-400 hover:text-white w-full"
+            <>
+              {!photoLoading && (
+                <div className="flex items-center">
+                  <div
+                    tabIndex={0}
+                    role="button"
+                    className="avatar mr-3 tooltip tooltip-left dropdown "
+                    data-tip={user.email}
+                  >
+                    <ul
+                      tabIndex={0}
+                      className="menu right-0 sm:right-auto menu-sm dropdown-content flex gap-2 mt-16 w-36  p-2 shadow rounded-box"
                     >
-                      User Profile
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink
-                      to="/updateprofile"
-                      className="btn rounded-full  hover:bg-sky-400 hover:text-white w-full"
-                    >
-                      Update Profile
-                    </NavLink>
-                  </li>
+                      <li>
+                        <NavLink
+                          to="/userprofile"
+                          className="btn  rounded-full  hover:bg-sky-400 hover:text-white w-full"
+                        >
+                          User Profile
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink
+                          to="/updateprofile"
+                          className="btn rounded-full  hover:bg-sky-400 hover:text-white w-full"
+                        >
+                          Update Profile
+                        </NavLink>
+                      </li>
 
-                  <li className="block sm:hidden">
-                    <hr className="my-2" />
+                      <li className="block sm:hidden">
+                        <hr className="my-2" />
+                        <a
+                          onClick={handleLogOut}
+                          className="btn rounded-full w-full hover:bg-orange-400 hover:text-white"
+                        >
+                          Logout
+                        </a>
+                      </li>
+                    </ul>
+                    <div className="w-14 rounded-full ring ring-neutral-100 ">
+                      <img className="" src={user.photoURL} />
+                    </div>
+                  </div>
+
+                  <div className="hidden sm:block">
                     <a
                       onClick={handleLogOut}
-                      className="btn rounded-full w-full hover:bg-orange-400 hover:text-white"
+                      className="btn rounded-full hover:bg-orange-400 hover:text-white"
                     >
                       Logout
                     </a>
-                  </li>
-                </ul>
-                <div className="w-14 rounded-full ring ring-neutral-100 ">
-                  <img className="" src={user.photoURL} />
+                  </div>
                 </div>
-              </div>
-
-              <div className="hidden sm:block">
-                <a
-                  onClick={handleLogOut}
-                  className="btn rounded-full hover:bg-orange-400 hover:text-white"
-                >
-                  Logout
-                </a>
-              </div>
-            </div>
+              )}
+            </>
           ) : (
             <>
               {!loading && (

@@ -11,6 +11,7 @@ const UpdateProfile = () => {
   const [updatePhoto, setUpdatePhoto] = useState(user.photoURL);
   const [photoSaving, setPhotoSaving] = useState(false);
   const [nameSaving, setNameSaving] = useState(false);
+
   const handleUpdatePhoto = (event) => {
     setUpdatePhoto(event.target.value);
   };
@@ -32,6 +33,7 @@ const UpdateProfile = () => {
     setPhotoSaving(true);
     setTimeout(() => {
       setPhotoSaving(false);
+
       toast.success("Photo URL successfully updated");
     }, 1000);
     const photo = e.target.photo.value;

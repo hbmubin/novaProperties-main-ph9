@@ -22,6 +22,7 @@ const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [photoLoading, setPhotoLoading] = useState(false);
 
   const createUser = (email, password) => {
     setLoading(true);
@@ -49,9 +50,12 @@ const AuthProvider = ({ children }) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
   const updateUser = (name, photo) => {
+    setPhotoLoading(true);
     updateProfile(user, {
       displayName: name,
       photoURL: photo,
+    }).then(() => {
+      setPhotoLoading(false);
     });
   };
 
@@ -70,6 +74,7 @@ const AuthProvider = ({ children }) => {
     updateUser,
     githubLogin,
     setLoading,
+    photoLoading,
   };
 
   return (

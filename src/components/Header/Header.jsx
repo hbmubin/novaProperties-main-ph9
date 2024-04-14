@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
+import toast, { Toaster } from "react-hot-toast";
 
 const Header = () => {
   const { user, logOut, loading, photoLoading } = useContext(AuthContext);
@@ -52,14 +53,20 @@ const Header = () => {
 
   const handleLogOut = () => {
     logOut()
-      .then(() => navigate("/"))
+      .then(() => {
+        toast.success("successfully Logout");
+        setTimeout(() => {
+          navigate("/");
+        }, 1000);
+      })
       .catch();
   };
 
   return (
     <div>
+      <Toaster></Toaster>
       <div className="navbar py-5">
-        <div className="navbar-start">
+        <div className="navbar-start ">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
               <svg
@@ -79,7 +86,7 @@ const Header = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content flex gap-2 mt-3 z-[1] p-2 shadow rounded-box w-52"
+              className="menu menu-sm  z-50  bg-yellow-50 dropdown-content flex gap-2 mt-3 p-2 shadow rounded-box w-52"
             >
               {links}
             </ul>
@@ -108,7 +115,7 @@ const Header = () => {
                   >
                     <ul
                       tabIndex={0}
-                      className="menu right-0 sm:right-auto menu-sm dropdown-content flex gap-2 mt-16 w-36  p-2 shadow rounded-box"
+                      className="menu right-0 sm:right-auto menu-sm z-40 bg-yellow-50 dropdown-content flex gap-2 mt-16 w-36  p-2 shadow rounded-box"
                     >
                       <li>
                         <NavLink

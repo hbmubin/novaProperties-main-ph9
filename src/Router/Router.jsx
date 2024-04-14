@@ -7,6 +7,7 @@ import Register from "../pages/Register/Register";
 import UserProfile from "../pages/UserProfile/UserProfile";
 import UpdateProfile from "../pages/UpdateProfile/UpdateProfile";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import CardDetails from "../pages/CardDetails/CardDetails";
 
 const router = createBrowserRouter([
   {
@@ -17,7 +18,15 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("properties.json"),
+        loader: () => fetch("/properties.json"),
+      },
+      {
+        path: "/property/:id",
+        element: (
+          <PrivateRoute>
+            <CardDetails></CardDetails>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/login",

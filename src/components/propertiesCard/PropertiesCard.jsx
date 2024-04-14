@@ -1,5 +1,7 @@
 import { MdOutlineMapsHomeWork } from "react-icons/md";
 import { CgSize } from "react-icons/cg";
+import { forwardRef } from "react";
+import { Link } from "react-router-dom";
 
 const PropertiesCard = ({ property }) => {
   const { id, segment, title, image, location, price, status, area } = property;
@@ -31,13 +33,16 @@ const PropertiesCard = ({ property }) => {
             <span>
               <CgSize size={25}></CgSize>
             </span>
-            <div>{area}</div>
+            <div className="">{area}</div>
           </div>
         </div>
-        <div className="card-actions">
-          <button className="btn rounded-full bg-base-200 hover:bg-sky-400 hover:text-white w-full">
+        <div className="card-actions flex-grow items-end">
+          <Link
+            to={`/property/${id}`}
+            className="btn rounded-full bg-base-200 hover:bg-sky-400 hover:text-white w-full"
+          >
             View Property
-          </button>
+          </Link>
         </div>
       </div>
     </div>

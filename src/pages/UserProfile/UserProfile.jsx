@@ -6,7 +6,6 @@ import { Helmet } from "react-helmet-async";
 
 const UserProfile = () => {
   const { user } = useContext(AuthContext);
-  console.log(user);
 
   return (
     <div className="flex justify-center mt-10">

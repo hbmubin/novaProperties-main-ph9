@@ -7,7 +7,8 @@ import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 
 const Login = () => {
-  const { loginUser, user, googleLogin, githubLogin } = useContext(AuthContext);
+  const { loginUser, user, googleLogin, githubLogin, setLoading } =
+    useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -30,6 +31,7 @@ const Login = () => {
       })
       .catch(() => {
         toast.error("Invalid email or password");
+        setLoading(false);
       });
   };
   const handleGoogleLogin = () => {

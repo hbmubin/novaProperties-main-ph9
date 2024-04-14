@@ -8,7 +8,7 @@ import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 
 const Register = () => {
-  const { createUser, googleLogin, user, githubLogin } =
+  const { createUser, googleLogin, user, githubLogin, setLoading } =
     useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -45,6 +45,7 @@ const Register = () => {
       })
       .catch((error) => {
         toast.error(error.message);
+        setLoading(false);
       });
   };
 

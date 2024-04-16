@@ -18,7 +18,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("/properties.json"),
+        loader: async () => fetch("/properties.json"),
       },
       {
         path: "/property/:id",
@@ -27,6 +27,7 @@ const router = createBrowserRouter([
             <CardDetails></CardDetails>
           </PrivateRoute>
         ),
+        loader: async () => fetch("/properties.json"),
       },
       {
         path: "/login",

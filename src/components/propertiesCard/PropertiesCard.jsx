@@ -1,6 +1,5 @@
 import { MdOutlineMapsHomeWork } from "react-icons/md";
 import { CgSize } from "react-icons/cg";
-import { forwardRef } from "react";
 import { Link } from "react-router-dom";
 
 const PropertiesCard = ({ property }) => {

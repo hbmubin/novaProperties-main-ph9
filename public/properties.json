@@ -3,49 +3,57 @@
     "id": 1,
     "image": "https://i.ibb.co/WsbnNy8/Beautiful-Family-Home.jpg",
     "title": "Beautiful Family Home",
-    "segment": "single-family homes",
+    "segment": "Single-family homes",
     "description": "Spacious family home with stunning views, perfect for gatherings and creating lasting memories.",
     "price": "$500,000",
-    "status": "sale",
+    "status": "Sale",
     "area": "2500 sqft",
     "location": "City Center, New York",
-    "facilities": ["living room", "swimming pool", "kitchen"]
+    "facilities": ["living room", "swimming pool", "kitchen"],
+    "latitude": 40.7128,
+    "longitude": -74.006
   },
   {
     "id": 2,
     "image": "https://i.ibb.co/vsvF3Cf/Luxury-Townhouse.jpg",
     "title": "Luxury Townhouse",
-    "segment": "townhouses",
+    "segment": "Townhouses",
     "description": "Modern townhouse in a prime location, offering sophisticated living spaces and contemporary design elements.",
     "price": "$700,000",
-    "status": "sale",
+    "status": "Sale",
     "area": "1800 sqft",
     "location": "Downtown, Los Angeles",
-    "facilities": ["living room", "garden", "gym"]
+    "facilities": ["living room", "garden", "gym"],
+    "latitude": 34.0522,
+    "longitude": -118.2437
   },
   {
     "id": 3,
     "image": "https://i.ibb.co/dBTwMGL/Downtown-Apartment.jpg",
     "title": "Downtown Apartment",
-    "segment": "apartments",
+    "segment": "Apartments",
     "description": "Chic apartment in the heart of the city, featuring elegant interiors and convenient access to urban amenities.",
     "price": "$2,000/month",
-    "status": "rent",
+    "status": "Rent",
     "area": "1200 sqft",
     "location": "Financial District, San Francisco",
-    "facilities": ["living room", "rooftop terrace", "concierge"]
+    "facilities": ["living room", "rooftop terrace", "concierge"],
+    "latitude": 37.7749,
+    "longitude": -122.4194
   },
   {
     "id": 4,
     "image": "https://i.ibb.co/j6fdDbK/student-housing.jpg",
     "title": "Student Housing Complex",
-    "segment": "student housing",
+    "segment": "Student housing",
     "description": "Modern housing complex near university campus, providing comfortable and conducive living environments for students.",
     "price": "$800/month",
-    "status": "rent",
+    "status": "Rent",
     "area": "600 sqft",
     "location": "University District, Boston",
-    "facilities": ["study area", "fitness center", "laundry facilities"]
+    "facilities": ["study area", "fitness center", "laundry facilities"],
+    "latitude": 42.3601,
+    "longitude": -71.0589
   },
   {
     "id": 5,
@@ -54,21 +62,29 @@
     "segment": "Senior living communities",
     "description": "Retirement community with various amenities, offering a tranquil and supportive environment for seniors to enjoy their golden years.",
     "price": "$3,000/month",
-    "status": "rent",
+    "status": "Rent",
     "area": "800 sqft",
     "location": "Suburban, Chicago",
-    "facilities": ["dining hall", "medical services", "recreational activities"]
+    "facilities": [
+      "dining hall",
+      "medical services",
+      "recreational activities"
+    ],
+    "latitude": 41.8781,
+    "longitude": -87.6298
   },
   {
     "id": 6,
     "image": "https://i.ibb.co/FWNZDhF/Vacation-Rentals.jpg",
     "title": "Luxury Beachfront Villa",
-    "segment": " vacation rentals",
+    "segment": " Vacation rentals",
     "description": "Exquisite villa with private beach access and stunning ocean views, offering the ultimate retreat for relaxation and rejuvenation.",
     "price": "$500/night",
-    "status": "rent",
+    "status": "Rent",
     "area": "2500 sqft",
     "location": "Maui, Hawaii",
-    "facilities": ["private pool", "beach access", "outdoor barbecue area"]
+    "facilities": ["private pool", "beach access", "outdoor barbecue area"],
+    "latitude": 20.7984,
+    "longitude": -156.3319
   }
 ]

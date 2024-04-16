@@ -9,7 +9,6 @@ const Home = () => {
   const ref = useRef(null);
   const handleScroll = () => {
     ref.current?.scrollIntoView({ behavior: "smooth" });
-    console.log("scroll");
   };
 
   return (
@@ -20,7 +19,7 @@ const Home = () => {
       <div className="bg-yellow-50 rounded-xl overflow-hidden" id="root">
         <Slider handleScroll={handleScroll} />
       </div>
-      <div className="max-w-3xl mb-16 text-center mx-auto" ref={ref}>
+      <div className="max-w-3xl mb-16 pt-10 text-center mx-auto" ref={ref}>
         <h2 className="text-4xl mb-6 font-semibold">Our Properties</h2>
         <p className="text-neutral-600">
           Discover an array of exquisite residences tailored to your lifestyle.

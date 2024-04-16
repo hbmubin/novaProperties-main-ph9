@@ -5,6 +5,10 @@ import "swiper/css/navigation";
 
 import { Autoplay } from "swiper/modules";
 
+const heroHeight = {
+  height: "80vh",
+};
+
 const Slider = ({ handleScroll }) => {
   return (
     <>
@@ -19,13 +23,13 @@ const Slider = ({ handleScroll }) => {
         // pagination={{
         //   clickable: true,
         // }}
-
+        style={heroHeight}
         modules={[Autoplay]}
-        className="mySwiper h-screen"
+        className="mySwiper mb-16"
       >
         <SwiperSlide>
           <div
-            className="hero  h-5/6 rounded-3xl overflow-hidden"
+            className="hero  h-full rounded-[50px] overflow-hidden"
             style={{
               backgroundImage:
                 "url(https://i.ibb.co/WsbnNy8/Beautiful-Family-Home.jpg)",
@@ -49,11 +53,11 @@ const Slider = ({ handleScroll }) => {
                 </button>
               </div>
             </div>
-          </div>{" "}
+          </div>
         </SwiperSlide>
         <SwiperSlide>
           <div
-            className="hero  h-5/6 rounded-3xl overflow-hidden "
+            className="hero  h-full rounded-[50px] overflow-hidden "
             style={{
               backgroundImage:
                 "url(https://i.ibb.co/rsCxq6q/Senior-Living.jpg)",
@@ -78,11 +82,11 @@ const Slider = ({ handleScroll }) => {
                 </button>
               </div>
             </div>
-          </div>{" "}
+          </div>
         </SwiperSlide>
         <SwiperSlide>
           <div
-            className="hero  rounded-3xl overflow-hidden h-5/6"
+            className="hero h-full rounded-[50px] overflow-hidden"
             style={{
               backgroundImage:
                 "url(https://i.ibb.co/FWNZDhF/Vacation-Rentals.jpg)",

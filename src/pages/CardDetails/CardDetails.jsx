@@ -2,8 +2,14 @@ import { useEffect, useRef } from "react";
 import { Helmet } from "react-helmet-async";
 import { useParams, useLoaderData } from "react-router-dom";
 import { FaRegMap } from "react-icons/fa";
+import { CgSize } from "react-icons/cg";
+import { AiOutlineForm } from "react-icons/ai";
 
 import { MapContainer, TileLayer, Popup, Marker } from "react-leaflet";
+import { MdOutlineMapsHomeWork } from "react-icons/md";
+import { HiOutlineLocationMarker } from "react-icons/hi";
+import { BsTelephoneForward } from "react-icons/bs";
+import { HiOutlineForward } from "react-icons/hi2";
 
 const heroHeight = {
   height: "80vh",
@@ -35,85 +41,98 @@ const CardDetails = () => {
   const scrollToBottom = () => {
     scrollRef.current.scrollIntoView({ behavior: "smooth" });
   };
-  console.log(scrollRef.current);
 
   return (
     <div>
       <Helmet>
         <title>{title}</title>
       </Helmet>
-      <div style={heroHeight} className="">
+      <div className="md:h-[80vh]">
         <div
           className="hero rounded-[50px] overflow-hidden h-full"
           style={{
             backgroundImage: `url(${image})`,
           }}
         >
-          <div
-            style={heroHeight}
-            className="hero-overlay  rounded-[50px] overflow-hidden h-full bg-opacity-60"
-          ></div>
-          <div className="hero-content max-h-full  rounded-[50px] overflow-hidden bg-yellow-50 m-10 border-4 border-neutral-400 p-0 grid grid-cols-2 ">
+          <div className="hero-overlay lg:h-[80vh]  rounded-[50px] overflow-hidden h-full bg-opacity-60"></div>
+          <div className="hero-content max-h-full  rounded-[50px] overflow-hidden bg-yellow-50 m-10 border-4 border-neutral-400 p-0 grid md:grid-cols-2 ">
             <div>
               <img className="" src={image} />
             </div>
-            <div>
+            <div className="md:p-0 p-5">
               <h2 className="text-3xl font-semibold mb-2">{title}</h2>
 
               <p className="text-neutral-500 mb-4">{description}</p>
-              <p className="text-lg font-semibold my-2">
-                Segment
+              <div className="text-lg font-semibold my-2 flex">
+                <div className="flex items-center gap-2">
+                  <MdOutlineMapsHomeWork size={22}></MdOutlineMapsHomeWork>
+                  <span>Segment</span>
+                </div>
                 <span className="mr-6"> :</span>
                 {segment}
-              </p>
-              <div className="flex items-center gap-4">
-                <h2 className="text-lg font-semibold">Facilities :</h2>
-                <div className="flex  gap-2">
+              </div>
+              <div className="flex md:items-center gap-4 items-start">
+                <div className="flex md:items-center gap-2 text-lg font-semibold mb-2 md:mb-0">
+                  <HiOutlineForward size={22}></HiOutlineForward>
+                  <span className="text-nowrap">Facilities :</span>
+                </div>
+                <div className="md:flex  gap-2 md:mb-0 mb-6">
                   {facilities.map((f, idx) => (
-                    <p
-                      className=" bg-neutral-100 py-1 rounded-2xl px-3"
+                    <div
+                      className=" bg-neutral-100 mb-2 md:mb-0 py-1 text-sm font-semibold text-neutral-700 rounded-2xl px-3 inline-block"
                       key={idx}
                     >
                       {f}
-                    </p>
+                    </div>
                   ))}
                 </div>
               </div>
-              <p className="text-lg font-semibold my-2">
-                Area
-                <span className="ml-11 mr-6">:</span>
+              <div className="text-lg font-semibold my-2 flex">
+                <div className="flex items-center gap-2">
+                  <CgSize size={22}></CgSize>
+                  <span>Area</span>
+                </div>
+                <span className="ml-10 mr-6">:</span>
                 {area}
-              </p>
-              <p className="text-lg font-semibold my-2">
-                Location
+              </div>
+              <div className="text-lg font-semibold my-2 flex md:items-center items-start">
+                <div className="flex items-center gap-2">
+                  <HiOutlineLocationMarker size={22}></HiOutlineLocationMarker>
+                  <span>Location</span>
+                </div>
                 <span className=" ml-2 mr-6">:</span>
                 <span className=" relative">
                   <span
                     onClick={() => scrollToBottom()}
-                    className="absolute -right-44 cursor-pointer bg-neutral-200 py-1 px-3 text-neutral-700 rounded-3xl top-1/2 -translate-y-1/2  text-xs flex items-center  gap-2"
+                    className="md:absolute md:-right-32 hidden md:visible cursor-pointer bg-neutral-200 py-1 px-3 text-neutral-700 rounded-3xl top-1/2 -translate-y-1/2  text-xs md:flex items-center  gap-2"
                   >
                     <FaRegMap size={20}></FaRegMap>
-                    <span>tap to see on map</span>
+                    <span>see on map</span>
                   </span>
                   <span
                     onClick={() => scrollToBottom()}
-                    className="text-neutral-600 cursor-pointer "
+                    data-tip="see on map"
+                    className="text-neutral-600 tooltip cursor-pointer "
                   >
                     {location}
                   </span>
                 </span>
-              </p>
-              <p className="text-lg font-semibold my-2">
-                Status
+              </div>
+              <div className="text-lg font-semibold my-2 flex">
+                <div className="flex items-center gap-2">
+                  <AiOutlineForm size={22}></AiOutlineForm>
+                  <span>Status</span>
+                </div>
                 <span className="ml-7 mr-6">:</span>
                 {status}
-              </p>
-              <div className="flex items-center gap-4">
-                <div className="font-semibold text-xl text-neutral-700">
+              </div>
+              <div className="md:flex text-center items-center gap-4">
+                <div className="font-semibold text-xl text-neutral-700  md:mt-0 mt-10 md:mb-0 mb-4">
                   {price}
                 </div>
                 <button className="btn bg-sky-400 rounded-full px-6 text-white hover:bg-sky-500">
-                  Contact Seller
+                  <BsTelephoneForward size={18}></BsTelephoneForward>
+                  <span className="ml-2">Contact Now</span>
                 </button>
               </div>
             </div>
@@ -125,7 +144,7 @@ const CardDetails = () => {
         <div className="h-3/4 rounded-3xl overflow-hidden">
           <MapContainer
             center={[latitude, longitude]}
-            zoom={18}
+            zoom={16}
             scrollWheelZoom={false}
             className="h-full"
           >

@@ -16,7 +16,7 @@ const Home = () => {
       <Helmet>
         <title>Nova Properties</title>
       </Helmet>
-      <div className="bg-yellow-50 rounded-xl overflow-hidden" id="root">
+      <div className=" rounded-xl overflow-hidden" id="root">
         <Slider handleScroll={handleScroll} />
       </div>
       <div className="max-w-3xl mb-16 pt-10 text-center mx-auto" ref={ref}>
@@ -27,7 +27,7 @@ const Home = () => {
           prime locations.
         </p>
       </div>
-      <div className="grid lg:grid-cols-3 gap-8">
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8">
         {properties.map((property) => (
           <PropertiesCard
             key={property.id}

@@ -17,12 +17,9 @@ const Slider = ({ handleScroll }) => {
         centeredSlides={true}
         loop={true}
         autoplay={{
-          delay: 4000,
+          delay: 3000,
           disableOnInteraction: false,
         }}
-        // pagination={{
-        //   clickable: true,
-        // }}
         style={heroHeight}
         modules={[Autoplay]}
         className="mySwiper mb-16"
@@ -109,7 +106,7 @@ const Slider = ({ handleScroll }) => {
                 </button>
               </div>
             </div>
-          </div>{" "}
+          </div>
         </SwiperSlide>
       </Swiper>
     </>

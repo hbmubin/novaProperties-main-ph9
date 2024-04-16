@@ -11,7 +11,7 @@ const heroHeight = {
 
 const Slider = ({ handleScroll }) => {
   return (
-    <>
+    <div data-aos="fade-up" data-aos-delay="300" data-aos-duration="500">
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
@@ -33,7 +33,7 @@ const Slider = ({ handleScroll }) => {
             }}
           >
             <div className="hero-overlay bg-opacity-45 "></div>
-            <div className="hero-content mt-52 text-center text-neutral-content">
+            <div className="hero-content  mt-52 text-center text-neutral-content">
               <div className="max-w-2xl">
                 <h1 className="mb-5 text-5xl font-bold">
                   Beautiful Family Home
@@ -109,7 +109,7 @@ const Slider = ({ handleScroll }) => {
           </div>
         </SwiperSlide>
       </Swiper>
-    </>
+    </div>
   );
 };
 

@@ -76,7 +76,11 @@ const Register = () => {
   };
 
   return (
-    <div className="flex justify-center items-center ">
+    <div
+      data-aos="fade-up"
+      data-aos-duration="500"
+      className="flex justify-center items-center "
+    >
       <Toaster />
       <Helmet>
         <title>Nova/Register</title>

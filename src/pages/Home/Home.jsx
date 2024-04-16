@@ -19,7 +19,12 @@ const Home = () => {
       <div className=" rounded-xl overflow-hidden" id="root">
         <Slider handleScroll={handleScroll} />
       </div>
-      <div className="max-w-3xl mb-16 pt-10 text-center mx-auto" ref={ref}>
+      <div
+        data-aos="fade-up"
+        data-aos-duration="500"
+        className="max-w-3xl mb-16 pt-10 text-center mx-auto"
+        ref={ref}
+      >
         <h2 className="text-4xl mb-6 font-semibold">Our Properties</h2>
         <p className="text-neutral-600">
           Discover an array of exquisite residences tailored to your lifestyle.

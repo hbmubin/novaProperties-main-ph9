@@ -59,7 +59,11 @@ const Login = () => {
     }
   };
   return (
-    <div className="flex justify-center items-center">
+    <div
+      data-aos="fade-up"
+      data-aos-duration="500"
+      className="flex justify-center items-center"
+    >
       <Helmet>
         <title>Nova/Login</title>
       </Helmet>

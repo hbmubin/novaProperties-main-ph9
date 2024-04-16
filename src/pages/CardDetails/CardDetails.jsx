@@ -47,7 +47,7 @@ const CardDetails = () => {
       <Helmet>
         <title>{title}</title>
       </Helmet>
-      <div className="md:h-[80vh]">
+      <div data-aos="fade-up" data-aos-delay="300" className="md:h-[80vh]">
         <div
           className="hero rounded-[50px] overflow-hidden h-full"
           style={{
@@ -140,23 +140,26 @@ const CardDetails = () => {
         </div>
       </div>
       <div ref={scrollRef} className="mt-32 mb-40"></div>
-      <div className="h-screen">
-        <div className="h-3/4 rounded-3xl overflow-hidden">
-          <MapContainer
-            center={[latitude, longitude]}
-            zoom={16}
-            scrollWheelZoom={false}
-            className="h-full"
-          >
-            <TileLayer
-              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            />
-            <Marker position={[latitude, longitude]}>
-              <Popup>{title}</Popup>
-            </Marker>
-          </MapContainer>
-        </div>
+      <div
+        data-aos="fade-zoom-in"
+        data-aos-easing="ease-in-back"
+        data-aos-offset="0"
+        className="h-[70vh] rounded-3xl overflow-hidden"
+      >
+        <MapContainer
+          center={[latitude, longitude]}
+          zoom={16}
+          scrollWheelZoom={false}
+          className="h-full"
+        >
+          <TileLayer
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          <Marker position={[latitude, longitude]}>
+            <Popup>{title}</Popup>
+          </Marker>
+        </MapContainer>
       </div>
     </div>
   );

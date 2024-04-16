@@ -8,7 +8,11 @@ const UserProfile = () => {
   const { user } = useContext(AuthContext);
 
   return (
-    <div className="flex justify-center mt-10">
+    <div
+      data-aos="zoom-in"
+      data-aos-duration="500"
+      className="flex justify-center mt-10"
+    >
       <Helmet>
         <title>Nova/User Profile</title>
       </Helmet>

@@ -6,7 +6,11 @@ const PropertiesCard = ({ property }) => {
   const { id, segment, title, image, location, price, status, area } = property;
   const statusModify = status.charAt(0).toUpperCase() + status.slice(1);
   return (
-    <div className="card p-[2px] rounded-3xl card-compact bg-base-100 shadow">
+    <div
+      data-aos="zoom-in-up"
+      data-aos-duration="500"
+      className="card p-[2px] rounded-3xl card-compact bg-base-100 shadow"
+    >
       <figure className="relative">
         <img src={image} alt="Shoes" />
         <div className="absolute right-0 bottom-0">

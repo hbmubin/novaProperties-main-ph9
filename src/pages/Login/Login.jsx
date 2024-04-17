@@ -65,7 +65,7 @@ const Login = () => {
       className="flex justify-center items-center"
     >
       <Helmet>
-        <title>Nova/Login</title>
+        <title>Login/Nova Properties</title>
       </Helmet>
       <Toaster></Toaster>
       <div className="card-body max-w-lg bg-white rounded-2xl shadow-sm">

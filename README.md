@@ -1,8 +1,8 @@
 # Nova Properties
 
-## Demo Live Site URL
+## Live Site URL
 
-[Demo Live Site](https://example.com)
+https://nova-properties-assign-9.web.app
 
 ## Features and Characteristics
 

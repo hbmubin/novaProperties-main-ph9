@@ -83,7 +83,7 @@ const Register = () => {
     >
       <Toaster />
       <Helmet>
-        <title>Nova/Register</title>
+        <title>Register/Nova Properties</title>
       </Helmet>
       <div className="card-body max-w-lg bg-white rounded-2xl shadow-sm">
         <form onSubmit={handleSubmit} className="">

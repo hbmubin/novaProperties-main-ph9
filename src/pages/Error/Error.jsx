@@ -8,7 +8,7 @@ const Error = () => {
     <div className="flex items-center justify-center min-h-screen poppins">
       <div className="flex flex-col items-center">
         <Helmet>
-          <title>Nova/Error</title>
+          <title>Error/Nova Properties</title>
         </Helmet>
         <CiFaceFrown
           size={200}

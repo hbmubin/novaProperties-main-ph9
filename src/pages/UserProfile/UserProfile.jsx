@@ -14,7 +14,7 @@ const UserProfile = () => {
       className="flex justify-center mt-10"
     >
       <Helmet>
-        <title>Nova/User Profile</title>
+        <title>User Profile/Nova Properties</title>
       </Helmet>
       <div className="card w-96 bg-base-100 shadow-sm">
         <div className="avatar mx-auto mt-6">

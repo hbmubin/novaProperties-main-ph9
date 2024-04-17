@@ -21,9 +21,9 @@ const UpdateProfile = () => {
   const handleName = (e) => {
     e.preventDefault();
     setNameSaving(true);
+
     setTimeout(() => {
       setNameSaving(false);
-      toast.success("Name successfully updated");
     }, 1000);
     const name = e.target.name.value;
     updateUser(name, user.photoURL);
@@ -33,8 +33,6 @@ const UpdateProfile = () => {
     setPhotoSaving(true);
     setTimeout(() => {
       setPhotoSaving(false);
-
-      toast.success("Photo URL successfully updated");
     }, 1000);
     const photo = e.target.photo.value;
     updateUser(user.displayName, photo);
@@ -46,11 +44,11 @@ const UpdateProfile = () => {
       className="flex justify-center mt-10"
     >
       <Helmet>
-        <title>Nova/Update Profile</title>
+        <title>Update Profile/Nova Properties</title>
       </Helmet>
       <div className="card min-w-[500px] bg-base-100 shadow-sm">
+        <Toaster></Toaster>
         <div className="card-body items-center text-center">
-          <Toaster></Toaster>
           <form onSubmit={handlePhoto} className="form-control w-full mb-6">
             <label className="label ml-2">
               <span className="label-text font-semibold text-lg">

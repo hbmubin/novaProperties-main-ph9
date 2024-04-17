@@ -45,7 +45,7 @@ const CardDetails = () => {
   return (
     <div>
       <Helmet>
-        <title>{title}</title>
+        <title>{title}/Nova Properties</title>
       </Helmet>
       <div data-aos="fade-up" data-aos-delay="300" className="md:h-[80vh]">
         <div

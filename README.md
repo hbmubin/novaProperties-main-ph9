@@ -33,7 +33,7 @@ Before you begin, ensure you have the following installed on your system:
    git clone https://github.com/hbmubin/novaProperties-main-ph9.git
 2. **Navigate to the Project Directory**:
       ```bash
-   cd green-shelter
+   cd novaProperties-main-ph9
 4. **Install Dependencies**:
     ```bash
    npm install

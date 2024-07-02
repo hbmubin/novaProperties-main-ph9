@@ -18,4 +18,28 @@ https://nova-properties-assign-9.web.app
 - **React-Leaflet**: Enables the integration of interactive maps into the website, enhancing the user experience with visual representations of property locations.
 - **Swiper Slider**: Enhances the browsing experience with smooth and intuitive navigation through property listings using a customizable slider component.
 
+  
+## Tutorial: How to Clone and Run Nova Properties
+
+### Prerequisites
+Before you begin, ensure you have the following installed on your system:
+- **Node.js**: [Install](https://nodejs.org/)
+- **Git**: [Install](https://git-scm.com/)
+
+### Steps
+
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/hbmubin/novaProperties-main-ph9.git
+2. **Navigate to the Project Directory**:
+      ```bash
+   cd green-shelter
+4. **Install Dependencies**:
+    ```bash
+   npm install
+5. **Run the Project**:
+    ```bash
+    npm run dev
+## Thanks
+
 Feel free to explore the live demo site and experience the features firsthand!
